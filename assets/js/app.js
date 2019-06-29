@@ -1,5 +1,4 @@
 jQuery(document).ready(function($) { // document is ready, execute app
-    $('#title').text('Hello Frontend - From jQuery app!');
     // Quickly hides the tables once they're loaded. This code will be removed later and hardcoded into the html styling itself so that the tables never render at all at first.
     $(".table").hide();
     $(".table2").hide();
