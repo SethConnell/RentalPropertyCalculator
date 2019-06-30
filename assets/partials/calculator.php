@@ -1,4 +1,3 @@
-<h1 id="title">Hello Frontend!</h1>
     <!-- Added a few required script sources. -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -6,7 +5,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <title>Add Text to DIV using jQuery</title>
     
      <!-- Styling for the application. Some styling is too broad. Will need to fix later. -->
     <style>
@@ -275,7 +273,6 @@
 	
 	
 	<div class="row">
-	  <div class="col-sm-1"></div>
 	  <div class="col-sm-5">
 		  <div class = "sectiontitle">Purchase</div>
           <!-- This div holds the the inputs required for calculating rental data.-->
@@ -400,7 +397,6 @@
 	</div>
 	
 	<div class="row">
-	  <div class="col-sm-1"></div>
 	  <div class="col-sm-5">
 		<div class = "sectiontitle">Recurring Operating Expenses</div>
 			<div id="expenses">
