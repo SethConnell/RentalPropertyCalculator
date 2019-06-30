@@ -23,7 +23,7 @@
 			font-weight: bold;
 		}
 		#myProfile { 
-			width: 800px;
+			width: 850px;
             margin: auto;
 		}
         .divText {
