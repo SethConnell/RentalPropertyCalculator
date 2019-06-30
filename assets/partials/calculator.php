@@ -273,7 +273,7 @@
 	
 	
 	<div class="row">
-	  <div class="col-sm-5">
+	  <div class="col-sm-6">
 		  <div class = "sectiontitle">Purchase</div>
           <!-- This div holds the the inputs required for calculating rental data.-->
 			<div id="purchase">
@@ -397,7 +397,7 @@
 	</div>
 	
 	<div class="row">
-	  <div class="col-sm-5">
+	  <div class="col-sm-6">
 		<div class = "sectiontitle">Recurring Operating Expenses</div>
 			<div id="expenses">
 				
