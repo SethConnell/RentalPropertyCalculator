@@ -127,7 +127,7 @@
 		}
     </style>
 <!-- The container body holds the calculator. It also takes up half the screen. -->    
-    <div id="myProfile" class="container">
+    <div id="myProfile" class="container col-12">
 	<br>
 	<h1 id = "calctitle">Rental Property Calculator</h1>
 	<div id = "result">Result</div>
