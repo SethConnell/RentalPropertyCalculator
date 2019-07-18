@@ -296,7 +296,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
 				
                 newequity = newequity + (newhousevalue * (+valueappreciation / 100));
 				totalequityaccumulated = totalequityaccumulated + newequity;
-                appreciationprofit = appreciationprofit + (+newhousevalue * (+valueappreciation / 100));
+                appreciationprofit = (+newhousevalue * (+valueappreciation / 100));
                 newhousevalue = +newhousevalue + (+newhousevalue * (+valueappreciation / 100));
                 
                 
@@ -314,11 +314,19 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			    cash_flow = cash_flow - (+fmp * 12);
 			    cash_flow = cash_flow - ((+monthlyrent * 12) * +vacancyrate / 100);
 			    cash_flow = cash_flow - (+annual_income * (+managementfee / 100));
+                
+                var cash_flow2;
+                cash_flow2 = +monthlyrent * 12;
+			    cash_flow2 = cash_flow - (+fmp * 12);
+			    cash_flow2 = cash_flow - ((+monthlyrent * 12) * +vacancyrate / 100);
+			    cash_flow2 = cash_flow - (+annual_income * (+managementfee / 100));
+                
+                
 			    cash_flow = cash_flow - +annualexpenses;
                 if (i < holdinglength) {
                     irrarray.push(parseFloat((cash_flow).toFixed(2)));
                 };
-                cash_on_cash_return = (cash_flow / Math.abs(cashinvested)) * 100;
+                cash_on_cash_return = ((totalcashflow + newequity) / Math.abs(cashinvested)) * 10;
                 
                 var cashtoreceive = newequity - (newhousevalue * (costtosell / 100));
                 var newArray = irrarray2.slice();
@@ -340,7 +348,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
                 };
 				totalcashflow = totalcashflow + cash_flow;
 			    expenses = +propertytaxcost + +insurencecost + +hoafeecost + +maintenancecost + +othercost;   
-				totalcashoncash = totalcashoncash + cash_on_cash_return;
+				totalcashoncash = (((newequity + cash_flow)- (cashinvested)) / Math.abs(cashinvested)) * 10;
             
                 var totalreturnIRR = (IRR(irrarray) * 100).toFixed(2);
 				mortgage = (fmp * 12);
@@ -360,10 +368,12 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			    othercost = updateCost(+othercost, +otherincrease);
 			    monthlyrent = updateCost(+monthlyrent, +annualrentincrease);
 			    othermonthlyincome = updateCost(othermonthlyincome, otherincomeincrease);
+                
+                cashinvested = cashinvested - (fmp * 12);
             };
             totalcashflow = totalcashflow + cashinvested;
-            totalcashoncash = (totalcashflow / Math.abs(cashinvested)) * 100;
-			$("<tr><td>Total</td><td>$" + (totalincome).toFixed(2) + "</td><td>$" + (totalmortgagepayments).toFixed(2) + "</td><td>$" + (totalexpenses).toFixed(2) + "</td><td>$" + (totalcashflow).toFixed(2) + "</td><td>" + (totalcashoncash).toFixed(2) + "%</td><td>" + "" + "</td><td></td><td></td></tr>").appendTo("#infotable");
+			totalcashoncash = (((newequity + totalcashflow) - (cashinvested)) / Math.abs(cashinvested)) * 10;
+			$("<tr><td>Result</td><td>$" + (totalincome).toFixed(2) + "</td><td>$" + (totalmortgagepayments).toFixed(2) + "</td><td>$" + (totalexpenses).toFixed(2) + "</td><td>$" + (totalcashflow).toFixed(2) + "</td><td>" + (totalcashoncash).toFixed(2) + "%</td><td>" + "" + "</td><td></td><td></td></tr>").appendTo("#infotable");
             
             $("#monthlyincome").append("$" + (firstmonthlyrent).toFixed(2));
             $("#annualincome").append("$" + (firstmonthlyrent * 12).toFixed(2));
