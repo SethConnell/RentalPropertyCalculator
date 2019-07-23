@@ -130,148 +130,6 @@
     <div id="myProfile" class="container col-12">
 	<br>
 	<h1 id = "calctitle">Rental Property Calculator</h1>
-	<div id = "result">Result</div>
-    <br>
-	<div class="row">
-    <div class="col-sm-6">
-      <div class="table-responsive">  
-
- <!-- Table3 holds the information left over after the owning period is up. Displays final data. -->
-  <table class="table3">
-	 <div class = "resulttitle"></div>
-    <tbody>
-        <tr>
-            <th>Return (IRR):</th>
-            <th id = "irr">123</th>
-        </tr>
-        <tr>
-            <th>Total Profit when Sold:</th>
-            <th id = "totalprofit">123</th>
-        </tr>
-        <tr>
-            <th>Total ROI:</th>
-            <th id = "cashoncash">123</th>
-        </tr>
-        <tr>
-            <th>Purchase Capitalization Rate:</th>
-            <th id = "PCR">123</th>
-        </tr>
-        <tr>
-            <th>Total Rental Income:</th>
-            <th id = "totalrentalincome">123</th>
-        </tr>
-        <tr>
-            <th>Total Mortgage Payments:</th>
-            <th id = "totalmortgage">123</th>
-        </tr>
-        <tr>
-            <th>Total Expenses:</th>
-            <th id = "totalexpenses">123</th>
-        </tr>
-        <tr>
-            <th>Total Net Operating Income:</th>
-            <th id = "netincome">123</th>
-        </tr>
-    </tbody>
-  </table>
-</div>
-    </div>
-    <div class="col-sm-6">
-      <div class="table-responsive">
-          
-           <!-- Table2 shows general data for each year. -->
-          
-		  <table class="table2">
-			<div class = "firstyeartitle"></div>
-			<thead>
-			  <tr style = "background-color: #DFF0FE;">
-				<th></th>
-				<th>Monthly</th>
-				<th>Annual</th>
-			  </tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>Income:</th>
-					<th id = "monthlyincome">123</th>
-					<th id = "annualincome">123</th>
-				</tr>
-				<tr>
-					<th>Mortgage Pay:</th>
-					<th id = "monthlymortgage">123</th>
-					<th id = "annualmortgage">123</th>
-				</tr>
-				<tr>
-					<th>Vacancy:</th>
-					<th id = "monthlyvacancy">123</th>
-					<th id = "annualvacancy">123</th>
-				</tr>
-				<tr>
-					<th>Property Tax:</th>
-					<th id = "monthlytax">123</th>
-					<th id = "annualtax">123</th>
-				</tr>
-				<tr>
-					<th>Total Insurence:</th>
-					<th id = "monthlyinsurence">123</th>
-					<th id = "annualinsurence">213</th>
-				</tr>
-				<tr>
-					<th>HOA Fee:</th>
-					<th id = "monthlyfee">123</th>
-					<th id = "annualfee">123</th>
-				</tr>
-				<tr>
-					<th>Maintenance Cost:</th>
-					<th id = "monthlymaintenance">123</th>
-					<th id = "annualmaintenance">123</th>
-				</tr>
-				<tr>
-					<th>Other Cost:</th>
-					<th id = "monthlycost">123</th>
-					<th id = "annualcost">123</th>
-				</tr>
-				<tr>
-					<th>Cash Flow:</th>
-					<th id = "monthlycashflow">123</th>
-					<th id = "annualcashflow">123</th>
-				</tr>
-				<tr>
-					<th>Net Operating Income (NOI):</th>
-					<th id = "monthlyNOI">123</th>
-					<th id = "annualNOI">123</th>
-				</tr>
-			</tbody>
-		  </table>
-		</div>
-	</div>
-</div>
-<div class = "firstyearexpensebreakdown">First Year Expense Breakdown:</div>
-<div id = "chartplace"></div>
-
-  <!-- Table lists data that increments over a series of years.-->
-  <table class="table table-responsive" style = "width: 100% !important;">
-    <thead style = "width: 100% !important;">
-      <tr style="height:5px">
-        <th rowspan="2" valign="top">Year</th>
-        <th rowspan="2" valign="top">Annual Income</th>
-        <th rowspan="2" valign="top">Mortgage</th>
-        <th rowspan="2" valign="top">Expenses</th>
-        <th rowspan="2" valign="top">Cash Flow</th>
-        <th rowspan="2" valign="middle">ROI</th>
-        <th rowspan="2" valign="middle">Equity Accumulated</th>
-        <th colspan="2" align="center">If Sold at Year End</th>
-      </tr>
-	  <tr>
-		  <td style = "background-color: #DFF0FE; font-weight: bold; padding: 0px;">Cash to Receive</td><td style = "background-color: #DFF0FE; font-weight: bold; padding: 0px;">Return (IRR)</td>
-	  </tr>
-    </thead>
-    <tbody id = "infotable" style = "width: 100% !important;">
-    </tbody>
-  </table>
-
-	
-	
 	<div class="row">
 	  <div class="col-sm-6">
 		  <div class = "sectiontitle">Purchase</div>
@@ -508,7 +366,162 @@
 	</div>
 	<br>
 <br>
-    
+	<div id = "result">Result</div>
+    <br>
+	<div class="row">
+    <div class="col-sm-6">
+      <div class="table-responsive">  
+
+ <!-- Table3 holds the information left over after the owning period is up. Displays final data. -->
+  <table class="table3">
+	 <div class = "resulttitle"></div>
+    <tbody>
+        <tr>
+            <th>Return (IRR):</th>
+            <th id = "irr">123</th>
+        </tr>
+        <tr>
+            <th>Total Profit when Sold:</th>
+            <th id = "totalprofit">123</th>
+        </tr>
+        <tr>
+            <th>Total ROI:</th>
+            <th id = "cashoncash">123</th>
+        </tr>
+        <tr>
+            <th>Purchase Capitalization Rate:</th>
+            <th id = "PCR">123</th>
+        </tr>
+        <tr>
+            <th>Total Rental Income:</th>
+            <th id = "totalrentalincome">123</th>
+        </tr>
+        <tr>
+            <th>Total Mortgage Payments:</th>
+            <th id = "totalmortgage">123</th>
+        </tr>
+        <tr>
+            <th>Total Expenses:</th>
+            <th id = "totalexpenses">123</th>
+        </tr>
+        <tr>
+            <th>Total Net Operating Income:</th>
+            <th id = "netincome">123</th>
+        </tr>
+    </tbody>
+  </table>
+</div>
+    </div>
+    <div class="col-sm-6">
+      <div class="table-responsive">
+          
+           <!-- Table2 shows general data for each year. -->
+          
+		  <table class="table2">
+			<div class = "firstyeartitle"></div>
+			<thead>
+			  <tr style = "background-color: #DFF0FE;">
+				<th></th>
+				<th>Monthly</th>
+				<th>Annual</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Income:</th>
+					<th id = "monthlyincome">123</th>
+					<th id = "annualincome">123</th>
+				</tr>
+				<tr>
+					<th>Mortgage Pay:</th>
+					<th id = "monthlymortgage">123</th>
+					<th id = "annualmortgage">123</th>
+				</tr>
+				<tr>
+					<th>Vacancy:</th>
+					<th id = "monthlyvacancy">123</th>
+					<th id = "annualvacancy">123</th>
+				</tr>
+				<tr>
+					<th>Property Tax:</th>
+					<th id = "monthlytax">123</th>
+					<th id = "annualtax">123</th>
+				</tr>
+				<tr>
+					<th>Total Insurence:</th>
+					<th id = "monthlyinsurence">123</th>
+					<th id = "annualinsurence">213</th>
+				</tr>
+				<tr>
+					<th>HOA Fee:</th>
+					<th id = "monthlyfee">123</th>
+					<th id = "annualfee">123</th>
+				</tr>
+				<tr>
+					<th>Maintenance Cost:</th>
+					<th id = "monthlymaintenance">123</th>
+					<th id = "annualmaintenance">123</th>
+				</tr>
+				<tr>
+					<th>Other Cost:</th>
+					<th id = "monthlycost">123</th>
+					<th id = "annualcost">123</th>
+				</tr>
+				<tr>
+					<th>Cash Flow:</th>
+					<th id = "monthlycashflow">123</th>
+					<th id = "annualcashflow">123</th>
+				</tr>
+				<tr>
+					<th>Net Operating Income (NOI):</th>
+					<th id = "monthlyNOI">123</th>
+					<th id = "annualNOI">123</th>
+				</tr>
+			</tbody>
+		  </table>
+		</div>
+	</div>
+</div>
+<div class = "firstyearexpensebreakdown">First Year Expense Breakdown:</div>
+<div id = "chartplace"></div>
+
+  <!-- Table lists data that increments over a series of years.-->
+  <table class="table table-responsive" style = "width: 100% !important;">
+    <thead style = "width: 100% !important;">
+      <tr style="height:5px">
+        <th rowspan="2" valign="top">Year</th>
+        <th rowspan="2" valign="top">Annual Income</th>
+        <th rowspan="2" valign="top">Mortgage</th>
+        <th rowspan="2" valign="top">Expenses</th>
+        <th rowspan="2" valign="top">Cash Flow</th>
+        <th rowspan="2" valign="middle">ROI</th>
+        <th rowspan="2" valign="middle">Equity Accumulated</th>
+        <th colspan="2" align="center">If Sold at Year End</th>
+      </tr>
+	  <tr>
+		  <td style = "background-color: #DFF0FE; font-weight: bold; padding: 0px;">Cash to Receive</td><td style = "background-color: #DFF0FE; font-weight: bold; padding: 0px;">Return (IRR)</td>
+	  </tr>
+    </thead>
+    <tbody id = "infotable" style = "width: 100% !important;">
+    </tbody>
+  </table>
+		
+		
+  <!-- Table lists data that increments over a series of years.-->
+  <table class="table table-responsive" style = "width: 100% !important;">
+    <thead style = "width: 100% !important;">
+      <tr style="height:5px">
+		<th rowspan="2" valign="top">Year</th>
+        <th rowspan="2" valign="top">Yearly Net Cash</th>
+		<th rowspan="2" valign="top">Yearly New Equity</th>
+		<th rowspan="2" valign="top">Yearly Total Return</th>
+        <th rowspan="2" valign="top">Mortage Interest</th>
+		<th rowspan="2" valign="top">Mortage Principle</th>
+	  </tr>
+    </thead>
+    <tbody id = "infotable2" style = "width: 100% !important;">
+    </tbody>
+  </table>
 
 </div>
     <br>
