@@ -260,8 +260,10 @@ jQuery(document).ready(function($) { // document is ready, execute app
             var appreciationprofit = 0;
 			var bonusequity = 0;
 			var cashinvested = 0;
+			var roicashinvested = 0;
 			cashinvested = +cashinvested - (+purchase_price * (+down_payment / 100));
 			cashinvested = +cashinvested - +closing_cost - +repair_cost;
+			roicashinvested = cashinvested;
 			
 			if (+new_value > +purchase_price) {
 				bonusequity = +bonusequity + (+new_value - +purchase_price);
@@ -284,7 +286,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
 				    mortage = 0;
 					equity_purchased_annually = 0;
 			    };
-			
+				roicashinvested = roicashinvested - (fmp * 12);
                 for (var p = 1; p < 13; p++) {
 						if (i <= loan_term) {
                         	realinterest = unpaidbalance * origininterest; // real interest represents INTEREST being paid, dummy!
@@ -298,8 +300,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
 				totalequityaccumulated = totalequityaccumulated + newequity;
                 appreciationprofit = appreciationprofit + (+newhousevalue * (+valueappreciation / 100));
                 newhousevalue = +newhousevalue + (+newhousevalue * (+valueappreciation / 100));
-                
-                
+             
 				var annualexpenses;
 				annualexpenses = +propertytaxcost + +insurencecost + +hoafeecost + +maintenancecost + +othercost;
 				totalexpenses = totalexpenses + annualexpenses;
@@ -320,8 +321,17 @@ jQuery(document).ready(function($) { // document is ready, execute app
                     irrarray.push(parseFloat((cash_flow).toFixed(2)));
                 };
 				
+				var mortgageinterest = (realinterest * 12);
+				var mortgageprinciple = ((fmp - realinterest) * 12);
+				
 				// Also known as "ROI".
-				return_on_investment = ((totalcashflow + newequity) / Math.abs(cashinvested)) * 10;
+				var thisyearequity;
+				if (i == 1) {
+					return_on_investment = (((newequity + cash_flow) - Math.abs(roicashinvested)) / (Math.abs(roicashinvested))) * 100;
+				} else {
+					return_on_investment = (((newequity + cash_flow) - Math.abs(roicashinvested)) / (Math.abs(roicashinvested))) * 100;
+				}
+				console.log(roicashinvested);
 				
                 cash_on_cash_return = (cash_flow / Math.abs(cashinvested)) * 100;
                 
@@ -346,7 +356,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			    expenses = +propertytaxcost + +insurencecost + +hoafeecost + +maintenancecost + +othercost;
 				totalcashoncash = totalcashoncash + cash_on_cash_return;
 				
-				totalroi = (((newequity + cash_flow) - (cashinvested)) / (Math.abs(cashinvested))) * 10;
+				totalroi = (((newequity + cash_flow) - (roicashinvested)) / (Math.abs(roicashinvested))) * 10;
 				// Example:
 				// (77025.09 + 1826.57 - 39073) / 39073
             
@@ -355,21 +365,15 @@ jQuery(document).ready(function($) { // document is ready, execute app
 				totalmortgagepayments = totalmortgagepayments + mortgage;
 			    $("<tr><td>" + i + ".</td><br>" + "<td>$" + (+annual_income).toFixed(2) + "</td><td>$" + (+mortgage).toFixed(2) + "</td><td>$" + (+expenses).toFixed(2) + "</td><td>$" + (+cash_flow).toFixed(2) + "</td><td>" + (+return_on_investment).toFixed(2) + "%</td><td>" + (+newequity).toFixed(2) + "</td><td>$" + (+cashtoreceive).toFixed(2) + "</td><td>" + totalreturnIRR2 + "%</td></tr>").appendTo("#infotable");
 				
-				var jj = (realinterest * 12).toFixed(2);
-				var kk = ((fmp - realinterest) * 12).toFixed(2);
-				
 				if (mortgage == 0) {
 					kk = 0;
 					jj = 0;
 				};
-				
 				var realtotalcashoncash = ((totalcashflow / Math.abs(cashinvested))) * Math.abs(cashinvested);
 				// Year - Yearly Net Cash - Yearly New Equity - Yearly Total Return - Mortage Interest - Mortage Principle
-			    $("<tr><td>" + i + ".</td><td>$" + (realtotalcashoncash).toFixed(2) + "</td><td>$" + ((newhousevalue * (+valueappreciation / 100)) + equity_purchased_annually).toFixed(2) + "</td><td>$" + (cash_flow + equity_purchased_annually).toFixed(2) + "</td><td>$" + (jj) + "</td><td>$" + (kk)+ "</td></tr>").appendTo("#infotable2");
+			    $("<tr><td>" + i + ".</td><td>$" + (realtotalcashoncash).toFixed(2) + "</td><td>$" + ((newhousevalue * (+valueappreciation / 100)) +  mortgageprinciple).toFixed(2) + "</td><td>$" + (cash_flow + mortgageprinciple).toFixed(2) + "</td><td>$" + (mortgageinterest).toFixed(2) + "</td><td>$" + (mortgageprinciple).toFixed(2) + "</td><td>" + (+cash_on_cash_return).toFixed(2) + "%</td></tr>").appendTo("#infotable2");
 				
 				if (i == +holdinglength) {
-					$("<tr> <td>" + (i + 1) + ".</td> <td></td> <td></td> <td></td> <td>$" + (newequity - (newequity * (costtosell / 100))).toFixed(2)  + "</td> <td></td> <td></td> <td></td> <td></td><tr>").appendTo("#infotable");
-					
 					cash_flow = cash_flow + (newequity - (newequity * (costtosell / 100)));
 					totalcashflow = totalcashflow + (newequity - (newequity * (costtosell / 100)));
 				}
@@ -388,7 +392,6 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			    monthlyrent = updateCost(+monthlyrent, +annualrentincrease);
 			    othermonthlyincome = updateCost(othermonthlyincome, otherincomeincrease);
                 
-                cashinvested = cashinvested - (fmp * 12);
             };
             totalcashflow = totalcashflow + cashinvested;
 			totalcashoncash = (((newequity + totalcashflow) - (cashinvested)) / Math.abs(cashinvested)) * 10;
@@ -497,7 +500,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             
         $("#irr").append(totalreturnIRR);
         $("#totalprofit").append("$" + totalreturnprofit);
-        $("#cashoncash").append(totalcashoncashreturn);
+        $("#cashoncash").append((cash_on_cash_return).toFixed(2) + "%");
         $("#PCR").append(purchasecapitalizationrate);
         $("#totalrentalincome").append(totalrentalincome);
         $("#totalmortgage").append(totalmortgage);

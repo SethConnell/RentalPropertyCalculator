@@ -385,7 +385,7 @@
             <th id = "totalprofit">123</th>
         </tr>
         <tr>
-            <th>Total ROI:</th>
+            <th>Total Cash On Cash:</th>
             <th id = "cashoncash">123</th>
         </tr>
         <tr>
@@ -517,6 +517,7 @@
 		<th rowspan="2" valign="top">Yearly Total Return</th>
         <th rowspan="2" valign="top">Mortage Interest</th>
 		<th rowspan="2" valign="top">Mortage Principle</th>
+		<th rowspan="2" valign="top">Cash On Cash</th>
 	  </tr>
     </thead>
     <tbody id = "infotable2" style = "width: 100% !important;">
