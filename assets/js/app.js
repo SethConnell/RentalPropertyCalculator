@@ -32,7 +32,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             $("#new_value").val("150000");
             $("#propertytaxcost").val("1500");
             $("#insurencecost").val("800");
-            $("#hoafeecost").val("0");
+            $("#hoafeecost").val("200");
             $("#maintenancecost").val("1000");
             $("#othercost").val("200");
             $("#monthlyrent").val("1000");
@@ -41,7 +41,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             $("#managementfee").val("0");
             $("#valueappreciation").val("3");
             $("#holdinglength").val("20");
-            $("#costtosell").val("8");
+            $("#costtosell").val("7");
             $("#propertytaxincrease").val("3");
             $("#insurenceincrease").val("3");
             $("#hoafeeincrease").val("3");
@@ -94,7 +94,6 @@ jQuery(document).ready(function($) { // document is ready, execute app
             vacancyrate = $("#vacancyrate").val();
             managementfee = $("#managementfee").val();
             annualrentincrease = $("#annualrentincrease").val();
-            othermonthlyincome = $("#othermonthlyincome").val();
             
             
             // Sell variables.
@@ -119,7 +118,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             
             var mortgage = (+fmp * 12);
             var vacancy_cost = ((+monthlyrent * 12) * (+vacancyrate / 100));
-            var managementfee_cost = (((+monthlyrent * 12) - (+vacancyrate / 100)) * (managementfee / 100));
+            var managementfee_cost = (((+monthlyrent * 12) - vacancy_cost) * (managementfee / 100));
             var expense_breakdown_total = +othercost + +mortgage + +vacancy_cost + +managementfee_cost + +propertytaxcost + +insurencecost + +othercost + maintenancecost;
             
             // expense breakdown formula
@@ -239,9 +238,10 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			annualexpenses = +propertytaxcost + +insurencecost + +hoafeecost + +maintenancecost + +othercost;
             
 			var annual_income, mortgage, expenses, cash_flow, cash_on_cash_return;
-			annual_income = (+monthlyrent * 12);
-			annual_income = (+annual_income - (+annual_income * (+vacancyrate / 100)));
-			annual_income = (+annual_income - (+annual_income * (+managementfee / 100)));
+			annual_income = (+monthlyrent * 12); // 12000
+			annual_income = annual_income + (+othermonthlyincome * 12);
+			annual_income = (+annual_income - (+annual_income * (+vacancyrate / 100))); //11400
+			annual_income = (+annual_income - (+annual_income * (+managementfee / 100))); // 10,260
 			var realdownpayment = (+down_payment / 100) * +purchase_price;
 			
 			// Equity is the downpayment.
@@ -306,20 +306,29 @@ jQuery(document).ready(function($) { // document is ready, execute app
 				totalexpenses = totalexpenses + annualexpenses;
 				
 				var annual_income, mortgage, expenses, cash_flow, cash_on_cash_return;
+				var managementfeecostvar;
 				annual_income = (+monthlyrent * 12);
 				annual_income = (+annual_income - (+annual_income * (+vacancyrate / 100)));
-				annual_income = (+annual_income - (+annual_income * (+managementfee / 100)));
+				annual_income = annual_income + (+othermonthlyincome * 12);
+				
+				// Monthly rent - vacancy + othermonthlyincome  * management fee = managementfeecost
+				managementfeecostvar  = ((+monthlyrent * 12) + (+othermonthlyincome * 12) - ((+monthlyrent * 12) * (+vacancyrate / 100))) * (managementfee / 100);
+				annual_income = (+annual_income - managementfeecostvar);
 				totalincome = totalincome + annual_income;
                 
-			    cash_flow = +monthlyrent * 12;
+				cash_flow = +monthlyrent * 12;
 			    cash_flow = cash_flow - (+fmp * 12);
 			    cash_flow = cash_flow - ((+monthlyrent * 12) * +vacancyrate / 100);
-			    cash_flow = cash_flow - (+annual_income * (+managementfee / 100));
+				cash_flow = cash_flow + (othermonthlyincome * 12);
+			    cash_flow = cash_flow - managementfeecostvar;
 				cash_flow = cash_flow - +annualexpenses;
+				
 				
                 if (i < holdinglength) {
                     irrarray.push(parseFloat((cash_flow).toFixed(2)));
                 };
+				
+				cash_on_cash_return = (cash_flow / Math.abs(cashinvested)) * 100;
 				
 				var mortgageinterest = (realinterest * 12);
 				var mortgageprinciple = ((fmp - realinterest) * 12);
@@ -327,13 +336,13 @@ jQuery(document).ready(function($) { // document is ready, execute app
 				// Also known as "ROI".
 				var thisyearequity;
 				if (i == 1) {
-					return_on_investment = (((newequity + cash_flow) - Math.abs(roicashinvested)) / (Math.abs(roicashinvested))) * 100;
+					return_on_investment = (((newequity + cash_flow) + roicashinvested) / (Math.abs(roicashinvested))) * 100;
 				} else {
-					return_on_investment = (((newequity + cash_flow) - Math.abs(roicashinvested)) / (Math.abs(roicashinvested))) * 100;
+					return_on_investment = (((newequity + cash_flow) + roicashinvested) / (Math.abs(roicashinvested))) * 100;
 				}
-				console.log(roicashinvested);
-				
-                cash_on_cash_return = (cash_flow / Math.abs(cashinvested)) * 100;
+				console.log("Cash Invested: " + roicashinvested);
+				console.log("Cash Flow: " + cash_flow);
+				console.log("New Equity: " + newequity);
                 
                 var cashtoreceive = newequity - (newhousevalue * (costtosell / 100));
                 var newArray = irrarray2.slice();
@@ -356,7 +365,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			    expenses = +propertytaxcost + +insurencecost + +hoafeecost + +maintenancecost + +othercost;
 				totalcashoncash = totalcashoncash + cash_on_cash_return;
 				
-				totalroi = (((newequity + cash_flow) - (roicashinvested)) / (Math.abs(roicashinvested))) * 10;
+				totalroi = (((newequity + cash_flow) - (roicashinvested)) / (Math.abs(roicashinvested))) * 100;
 				// Example:
 				// (77025.09 + 1826.57 - 39073) / 39073
             
@@ -394,7 +403,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
                 
             };
             totalcashflow = totalcashflow + cashinvested;
-			totalcashoncash = (((newequity + totalcashflow) - (cashinvested)) / Math.abs(cashinvested)) * 10;
+			totalcashoncash = (totalcashflow / Math.abs(cashinvested)) * 100;
 			$("<tr><td>Result</td><td>$" + (totalincome).toFixed(2) + "</td><td>$" + (totalmortgagepayments).toFixed(2) + "</td><td>$" + (totalexpenses).toFixed(2) + "</td><td>$" + (totalcashflow).toFixed(2) + "</td><td>" + (totalroi).toFixed(2) + "%</td><td>" + "" + "</td><td></td><td></td></tr>").appendTo("#infotable");
 			
             
