@@ -23,23 +23,23 @@ jQuery(document).ready(function($) { // document is ready, execute app
         
         // Just autofills the input values of the form when the autofill button is clicked.
         $('#autofill').click(function () {
-            $('#purchase_price').val("119000");
+            $('#purchase_price').val("111000");
             $("#down_payment").val("25");
-            $("#interest_rate").val("4.8");
+            $("#interest_rate").val("4.5");
             $("#loan_term").val("30");
-            $("#closing_cost").val("1190");
-            $("#repair_cost").val("500");
-            $("#new_value").val("120000");
+            $("#closing_cost").val("1110");
+            $("#repair_cost").val("0");
+            $("#new_value").val("115000");
             $("#propertytaxcost").val("750");
             $("#insurencecost").val("1000");
             $("#hoafeecost").val("0");
-            $("#maintenancecost").val("1500");
+            $("#maintenancecost").val("2000");
             $("#othercost").val("300");
             $("#monthlyrent").val("1100");
             $("#othermonthlyincome").val("0");
             $("#vacancyrate").val("5");
             $("#managementfee").val("10");
-            $("#valueappreciation").val("3");
+            $("#valueappreciation").val("0");
             $("#holdinglength").val("30");
             $("#costtosell").val("0");
             $("#propertytaxincrease").val("3");
@@ -48,7 +48,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             $("#maintenanceincrease").val("3");
             $("#otherincrease").val("3");
             $("#otherincomeincrease").val("3");
-            $("#annualrentincrease").val("3");
+            $("#annualrentincrease").val("0");
         });
         
         // The AddText function gets the calculations calculating :-)
@@ -94,6 +94,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             vacancyrate = $("#vacancyrate").val();
             managementfee = $("#managementfee").val();
             annualrentincrease = $("#annualrentincrease").val();
+            
             
             
             // Sell variables.
