@@ -86,7 +86,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             
             // Set Income variables.
             var monthlyrent, insurencecost, vacancyrate, managementfee;
-            var annualrentincrease, othermonthlyincome;
+            var annualrentincrease, othermonthlyincome, otherincomeincrease, firstmonthlyrent;
             monthlyrent = $("#monthlyrent").val();
             firstmonthlyrent = +monthlyrent;
             othermonthlyincome = $("#othermonthlyincome").val();
@@ -391,13 +391,27 @@ jQuery(document).ready(function($) { // document is ready, execute app
                 irrarray2.push(parseFloat((cash_flow).toFixed(2)));
 				 
 			    // This is where I update all form data for the next year's increases.
-			    propertytaxcost = updateCost(+propertytaxcost, +propertytaxincrease);
-			    insurencecost = updateCost(+insurencecost, +insurenceincrease);
-			    hoafeecost = updateCost(+hoafeecost, +hoafeeincrease);
-			    maintenancecost = updateCost(+maintenancecost, +maintenanceincrease);
-			    othercost = updateCost(+othercost, +otherincrease);
-			    monthlyrent = updateCost(+monthlyrent, +annualrentincrease);
-			    othermonthlyincome = updateCost(othermonthlyincome, otherincomeincrease);
+                if (propertytaxincrease > 0) {
+                    propertytaxcost = updateCost(+propertytaxcost, +propertytaxincrease);
+                };
+                if (insurenceincrease > 0) {
+                    insurencecost = updateCost(+insurencecost, +insurenceincrease);
+                };
+                if (hoafeeincrease > 0) {
+                    hoafeecost = updateCost(+hoafeecost, +hoafeeincrease);
+                };
+                if (maintenanceincrease > 0) {
+                    maintenancecost = updateCost(+maintenancecost, +maintenanceincrease);
+                };
+                if (otherincrease > 0) {
+                    othercost = updateCost(+othercost, +otherincrease);
+                };
+                if (annualrentincrease > 0) {
+                    monthlyrent = updateCost(+monthlyrent, +annualrentincrease);
+                };
+                if (otherincomeincrease > 0) {
+                    othermonthlyincome = updateCost(othermonthlyincome, otherincomeincrease);
+                }
                 
             };
             totalcashflow = totalcashflow + cashinvested;
