@@ -512,7 +512,7 @@
     <thead style = "width: 100% !important;">
       <tr style="height:5px">
 		<th rowspan="2" valign="top">Year</th>
-        <th rowspan="2" valign="top">Yearly Net Cash</th>
+        <th rowspan="2" valign="top">Total Cash Made</th>
 		<th rowspan="2" valign="top">Yearly New Equity</th>
 		<th rowspan="2" valign="top">Yearly Total Return</th>
         <th rowspan="2" valign="top">Mortage Interest</th>
