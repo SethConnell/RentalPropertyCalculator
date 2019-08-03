@@ -262,6 +262,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             var appreciationprofit = 0;
 			var bonusequity = 0;
 			var cashinvested = 0;
+            var othermonthlyincometotal = 0;
 			cashinvested = +cashinvested - (+purchase_price * (+down_payment / 100));
 			cashinvested = +cashinvested - +closing_cost - +repair_cost;
 			var roicashinvested = cashinvested;
@@ -315,21 +316,27 @@ jQuery(document).ready(function($) { // document is ready, execute app
 				
 				var annual_income, mortgage, expenses, cash_flow, cash_on_cash_return;
 				var managementfeecostvar;
+                othermonthlyincometotal = (othermonthlyincome * 12) - ((othermonthlyincome * 12) * (+vacancyrate / 100));
+    
+                
 				annual_income = (+monthlyrent * 12);
 				annual_income = (+annual_income - (+annual_income * (+vacancyrate / 100)));
-				annual_income = annual_income + (+othermonthlyincome * 12);
+				annual_income = annual_income + othermonthlyincometotal;
+                
+                var othermonthlyincometotalcostvar = othermonthlyincometotal * (+managementfee / 100);
 				
 				// Monthly rent - vacancy + othermonthlyincome  * management fee = managementfeecost
-				managementfeecostvar  = ((+monthlyrent * 12) + (+othermonthlyincome * 12) - ((+monthlyrent * 12) * (+vacancyrate / 100))) * (managementfee / 100);
-				annual_income = (+annual_income - managementfeecostvar);
+				managementfeecostvar = ((+monthlyrent * 12) - ((+monthlyrent * 12) * (+vacancyrate / 100))) * (managementfee / 100);
+				annual_income = (+annual_income - managementfeecostvar - othermonthlyincometotalcostvar);
 				totalincome = totalincome + annual_income;
                 
                 
 				cash_flow = +monthlyrent * 12;
 			    cash_flow = cash_flow - (+fmp * 12);
 			    cash_flow = cash_flow - ((+monthlyrent * 12) * +vacancyrate / 100);
-				cash_flow = cash_flow + (othermonthlyincome * 12);
+				cash_flow = cash_flow + othermonthlyincometotal;
 			    cash_flow = cash_flow - managementfeecostvar;
+                cash_flow = cash_flow - othermonthlyincometotalcostvar;
 				cash_flow = cash_flow - +annualexpenses;
                 
                 if (i > 1) {
@@ -421,7 +428,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
                 };
                 if (otherincomeincrease > 0) {
                     othermonthlyincome = updateCost(othermonthlyincome, otherincomeincrease);
-                }
+                };
                 
             };
             totalcashflow = totalcashflow + cashinvested;
