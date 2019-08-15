@@ -494,7 +494,7 @@
         <th rowspan="2" valign="top">Mortgage</th>
         <th rowspan="2" valign="top">Expenses</th>
         <th rowspan="2" valign="top">Cash Flow</th>
-        <th rowspan="2" valign="middle">ROI</th>
+        <th rowspan="2" valign="middle">Yearly ROI</th>
         <th rowspan="2" valign="middle">Equity Accumulated</th>
         <th colspan="2" align="center">If Sold at Year End</th>
       </tr>

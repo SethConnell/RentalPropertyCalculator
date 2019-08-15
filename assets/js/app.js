@@ -361,12 +361,15 @@ jQuery(document).ready(function($) { // document is ready, execute app
                 newArray.push(cash_flow + cashtoreceive);
                 totalreturnIRR2 = (IRR(newArray) * 100).toFixed(2);
 				// sellpriceofhome + cashflow - cashinvested
-				if (valueappreciation == 0) {
-					var return_on_investment = (((parseFloat((mortgageprinciple)) + parseFloat(cash_flow)) - Math.abs(parseFloat((fmp * 12)))) / (Math.abs(parseFloat((fmp * 12))))) * 100;
+				
+				if (i == 1) {
+					var return_on_investment = (((parseFloat((newequity - oldequity)) + parseFloat(cash_flow))) / (Math.abs(parseFloat((fmp * 12) + Math.abs(cashinvested))))) * 100;
 				} else {
-					var return_on_investment = (((parseFloat((appreciationprofit + mortgageprinciple)) + parseFloat(cash_flow)) - Math.abs(parseFloat((fmp * 12)))) / (Math.abs(parseFloat((fmp * 12))))) * 100;
+					var return_on_investment = (((parseFloat((newequity - oldequity)) + parseFloat(cash_flow))) / (Math.abs(parseFloat((fmp * 12))))) * 100;
 				};
-                roicashinvested = roicashinvested - (fmp * 12);
+
+				roicashinvested = roicashinvested - (fmp * 12);
+
                 
                 if (i == 1) {
                     var oldcashflow = cash_flow;
