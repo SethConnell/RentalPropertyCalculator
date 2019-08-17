@@ -1,0 +1,26 @@
+#myProfile { 
+	width: 850px;
+	margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+	#purchase_price, #down_payment, #interest_rate, #loan_term, #closing_cost, #repair_cost, #new_value, #vacancyrate, #managementfee, #monthlyrent, #othermonthlyincome, #propertytaxcost, #insurencecost, #hoafeecost, #maintenancecost, #othercost, #valueappreciation, #holdinglength, #propertytaxincrease, #costtosell, #insurenceincrease, #hoafeeincrease, #maintenanceincrease, #otherincrease {
+		width: 200px;
+	}
+	
+	.thingy {
+		max-width: 100% !important;
+	}
+	
+	.sectiontitle {
+		width: 200px !important;
+	}
+	
+	#myProfile {
+		width: 100%;
+	}
+	
+	#calctitle {
+		font-size: 15px !important;
+	}
+}

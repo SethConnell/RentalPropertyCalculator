@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- Styling for the application. Some styling is too broad. Will need to fix later. -->
     <style>
 		#btAdd {
@@ -127,126 +127,126 @@
 		}
     </style>
 <!-- The container body holds the calculator. It also takes up half the screen. -->    
-    <div id="myProfile" class="container col-12">
+    <div id="myProfile" class="container col-12 col-md-6">
 	<br>
 	<h1 id = "calctitle">Rental Property Calculator</h1>
 	<div class="row">
-	  <div class="col-sm-6">
+	  <div class="col-md-6 thingy">
 		  <div class = "sectiontitle">Purchase</div>
           <!-- This div holds the the inputs required for calculating rental data.-->
 			<div id="purchase">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Purchase Price:</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="purchase_price" placeholder="Purchase Price">
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Down Payment:</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="down_payment" placeholder = "%">
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Interest Rate</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="interest_rate" placeholder = "%">
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Loan Term:</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="loan_term" placeholder = "In Years">
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Closing Cost</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="closing_cost" placeholder = "$">
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Repair Cost</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="repair_cost" placeholder = "$">
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Value After Repairs</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="new_value" placeholder = "$">
 					</div>
 				</div>
 			</div>
 	  </div>
 		
-	  <div class="col-sm-6">
+	  <div class="col-md-6 thingy">
 		  <div class = "sectiontitle">Income</div>
 			<div id="income">
 				<div class="row">
-					<div class="col-sm-9"></div>
-					<div class="col-sm-3">
+					<div class="col-md-9"></div>
+					<div class="col-md-3">
 						<label>Annual Increase</label>
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Monthly Rent:</label> 
 					</div>
-					<div class="col-sm-3">
+					<div class="col-md-3">
 						<input type="text" id="monthlyrent" placeholder="$">  
 					</div>
-					<div class="col-sm-2">
+					<div class="col-md-2">
 						<input type="text" id="annualrentincrease" placeholder="%">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Other Monthly Income:</label>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-md-3">
 						<input type="text" id="othermonthlyincome" placeholder="$">
 					</div>
-					<div class="col-sm-2">
+					<div class="col-md-2">
 						<input type="text" id="otherincomeincrease" placeholder="%">
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Vacancy Rate:</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="vacancyrate" placeholder="%">
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Management Fee:</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="managementfee" placeholder="%">
 					</div>
 				</div>
@@ -255,111 +255,111 @@
 	</div>
 	
 	<div class="row">
-	  <div class="col-sm-6">
+	  <div class="col-md-6 thingy">
 		<div class = "sectiontitle">Recurring Operating Expenses</div>
 			<div id="expenses">
 				
 				<div class="row">
-					<div class="col-sm-5">
+					<div class="col-md-5">
 					</div>
-					<div class="col-sm-4">
+					<div class="col-md-4">
 						<label><br>Annual</label>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-md-3">
 						<label>Annual Increase</label>
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-5">
+					<div class="col-md-5">
 						<label>Property Tax:</label>
 					</div>
-					<div class="col-sm-4">
+					<div class="col-md-4">
 						<input type="text" id="propertytaxcost" placeholder="Cost">
 					</div>
-					<div class="col-sm-3">
+					<div class="col-md-3">
 						<input type="text" id="propertytaxincrease" placeholder="%">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-5">
+					<div class="col-md-5">
 						<label>Total Insurence:</label>
 					</div>
-					<div class="col-sm-4">
+					<div class="col-md-4">
 						<input type="text" id="insurencecost" placeholder="Cost">
 					</div>
-					<div class="col-sm-3">
+					<div class="col-md-3">
 						<input type="text" id="insurenceincrease" placeholder="%">
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-5">
+					<div class="col-md-5">
 						<label>HOA Fee:</label>
 					</div>
-					<div class="col-sm-4">
+					<div class="col-md-4">
 						<input type="text" id="hoafeecost" placeholder="Cost">
 					</div>
-					<div class="col-sm-3">
+					<div class="col-md-3">
 						<input type="text" id="hoafeeincrease" placeholder="%">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-5">
+					<div class="col-md-5">
 						<label>Maintenance:</label>
 					</div>
-					<div class="col-sm-4">
+					<div class="col-md-4">
 						<input type="text" id="maintenancecost" placeholder="Cost">
 					</div>
-					<div class="col-sm-3">
+					<div class="col-md-3">
 						<input type="text" id="maintenanceincrease" placeholder="%">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-5">
+					<div class="col-md-5">
 						<label>Other Costs:</label>
 					</div>
-					<div class="col-sm-4">
+					<div class="col-md-4">
 						<input type="text" id="othercost" placeholder="Cost">
 					</div>
-					<div class="col-sm-3">
+					<div class="col-md-3">
 						<input type="text" id="otherincrease" placeholder="%">
 					</div>
 				</div>
 				<br>
 			</div>
 		</div>
-		  <div class="col-sm-6">
+		  <div class="col-md-6 thingy">
 			<div class = "sectiontitle">Sell</div>
 			<div id="sell">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Value Appreciation:</label>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="valueappreciation" placeholder="% Per Year">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Holding Length:</label> 
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="holdinglength" placeholder="Years">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<label>Cost to Sell:</label> 
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<input type="text" id="costtosell" placeholder="% Of Sale Price"> 
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-9"><input type="button" id="btAdd" value="Calculate" style="margin:10px 0;" /><input type="button" id="autofill" value="Auto Fill" style="margin:10px 0;" /></div>
+					<div class="col-md-2"></div>
+					<div class="col-md-9"><input type="button" id="btAdd" value="Calculate" style="margin:10px 0;" /><input type="button" id="autofill" value="Auto Fill" style="margin:10px 0;" /></div>
 				</div>
 			</div>
 		</div>
@@ -369,7 +369,7 @@
 	<div id = "result">Result</div>
     <br>
 	<div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6">
       <div class="table-responsive">  
 
  <!-- Table3 holds the information left over after the owning period is up. Displays final data. -->
@@ -412,7 +412,7 @@
   </table>
 </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-md-6">
       <div class="table-responsive">
           
            <!-- Table2 shows general data for each year. -->

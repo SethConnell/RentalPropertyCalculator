@@ -53,6 +53,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
         
         // The AddText function gets the calculations calculating :-)
         function AddText() {
+			
             // Set Purchase variables to the inputs made by the user.
             var purchase_price, down_payment, interest_rate, loan_term, closing_cost;
             purchase_price = $('#purchase_price').val();
@@ -561,6 +562,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
 		$(".resulttitle").append("For The " + holdinglength + " Years Invested:");
 		$(".firstyeartitle").append("First Year Income and Expenses:");
 		$(".firstyearexpensebreakdown").show();
+		$(window).scrollTop(1000);
         } 
     });
 });
