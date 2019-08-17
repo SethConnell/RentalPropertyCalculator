@@ -39,7 +39,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             $("#othermonthlyincome").val("0");
             $("#vacancyrate").val("5");
             $("#managementfee").val("10");
-            $("#valueappreciation").val("0");
+            $("#valueappreciation").val("3");
             $("#holdinglength").val("30");
             $("#costtosell").val("0");
             $("#propertytaxincrease").val("3");
@@ -48,7 +48,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
             $("#maintenanceincrease").val("3");
             $("#otherincrease").val("3");
             $("#otherincomeincrease").val("3");
-            $("#annualrentincrease").val("0");
+            $("#annualrentincrease").val("3");
         });
         
         // The AddText function gets the calculations calculating :-)
