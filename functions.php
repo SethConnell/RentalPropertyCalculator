@@ -1,6 +1,6 @@
 <?php
 	/**
-	 * Plugin Name: Rental Property Calulator
+	 * Plugin Name: Rental Property Calculator
 	 * Description: A comprehensive calculator for determining every aspect of your rental property’s investment prospects.
 	 * Author: Seth Connell
 	 * Version: 1.0
@@ -20,8 +20,8 @@
 			$this->properties = array ( // this object contains global variables that will be used in the other plugin classes. It is passed to each class constructor
 				'root_dir' => plugin_dir_path(__FILE__),  // the relative path to the root directory of the plugin
 				'root_url' => plugin_dir_url( __FILE__ ), // the URL to the root directory of the plugin
-				'page_title' => 'Rental Property Calulator', // the page title used for the admin side of the plugin
-				'menu_title' => 'Rental Property Calulator', // the text used for the menu item in the admin menu
+				'page_title' => 'Rental Property Calculator', // the page title used for the admin side of the plugin
+				'menu_title' => 'Rental Property Calculator', // the text used for the menu item in the admin menu
 				'menu_slug' => 'rental-property-calculator', // the URL slug used for the admin side of the plugin
 				'prefix' => 'rpc', // specifies a unique prefix for names and paths in this plugin. This eliminates errors caused by defining multiple names or paths of the same name from different plugins
 				'var_prefix' => 'rpc', // specifies a unique prefix for variables in this plugin. This eliminates errors caused by defining multiple variables of the same name from different plugins
