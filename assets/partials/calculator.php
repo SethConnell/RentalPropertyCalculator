@@ -102,7 +102,8 @@
 			
 		}
 		.table {
-			font-size: 15px;
+			font-size: 13px;
+            font-weight: bold;
 		}
 		.table thead tr {
 			border-bottom: 3px solid #666;
