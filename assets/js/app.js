@@ -279,9 +279,10 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			$("<tr><td>Begin</td><td></td><td></td><td></td><td>$" + (+cashinvested).toFixed(2) + "</td><td></td><td></td><td></td><td></td></tr>").appendTo("#infotable");
             irrarray.push(parseFloat((cashinvested).toFixed(2)));
             irrarray2.push(parseFloat((cashinvested).toFixed(2)));
-			var moneymade = 0;
-            var moneyspent = 0;
             var oldcashflow = 0;
+            var roi_expenses = 0
+            var roi_mortgage_payments = 0;
+            var roi_moneymade = 0;
 			
 			for (var i = 1; i < (+holdinglength + 1); i++) {
 				
@@ -294,7 +295,6 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			    };
 				var interestpayments = 0;
 				var princplepayments = 0;
-                var moneyspent = 0;
                 for (var p = 1; p < 13; p++) {
 						if (i <= loan_term) {
                         	realinterest = unpaidbalance * origininterest; // real interest represents INTEREST being paid, dummy!
@@ -350,7 +350,6 @@ jQuery(document).ready(function($) { // document is ready, execute app
 				cash_on_cash_return = (cash_flow / Math.abs(cashinvested)) * 100;
 				
 				var mortgageinterest = interestpayments;
-                moneyspent = moneyspent 
 				var mortgageprinciple = ((fmp * 12) - interestpayments);
 				
 				// Also known as "ROI".
@@ -360,9 +359,11 @@ jQuery(document).ready(function($) { // document is ready, execute app
                 newArray.push(cash_flow + cashtoreceive);
                 totalreturnIRR2 = (IRR(newArray) * 100).toFixed(2);
 				// sellpriceofhome + cashflow - cashinvested
-				
-				var return_on_investment = (parseFloat(cash_flow) / (annualexpenses + (fmp * 12))) * 100;
-
+				roi_expenses = roi_expenses + annualexpenses;
+                roi_mortgage_payments = roi_mortgage_payments + (fmp * 12);
+                roi_moneymade =  roi_moneymade + cash_flow;
+				var return_on_investment = (parseFloat(roi_moneymade) / (roi_expenses + roi_mortgage_payments)) * 100;
+                
                 if (i == 1) {
                     var oldcashflow = cash_flow;
                     var oldnetincome = annual_income - annualexpenses;
