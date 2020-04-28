@@ -15,6 +15,14 @@
 			font-weight: bold;
 			
 		}
+        
+        input {
+            font-size: 12px;
+        }
+        
+        input::placeholder {
+            font-size: 12px;
+        }
 		
 		#autofill {
 			width: 100px;
