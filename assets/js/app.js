@@ -266,7 +266,6 @@ jQuery(document).ready(function($) { // document is ready, execute app
             var othermonthlyincometotal = 0;
 			cashinvested = +cashinvested - (+purchase_price * (+down_payment / 100));
 			cashinvested = +cashinvested - +closing_cost - +repair_cost;
-			var roicashinvested = cashinvested;
 			
 			if (+new_value > +purchase_price) {
 				bonusequity = +bonusequity + (+new_value - +purchase_price);
@@ -280,12 +279,9 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			$("<tr><td>Begin</td><td></td><td></td><td></td><td>$" + (+cashinvested).toFixed(2) + "</td><td></td><td></td><td></td><td></td></tr>").appendTo("#infotable");
             irrarray.push(parseFloat((cashinvested).toFixed(2)));
             irrarray2.push(parseFloat((cashinvested).toFixed(2)));
-			
-			var funfunroi = 0;
-            
+			var moneymade = 0;
+            var moneyspent = 0;
             var oldcashflow = 0;
-			
-			var totalroi = 0;
 			
 			for (var i = 1; i < (+holdinglength + 1); i++) {
 				
@@ -298,6 +294,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
 			    };
 				var interestpayments = 0;
 				var princplepayments = 0;
+                var moneyspent = 0;
                 for (var p = 1; p < 13; p++) {
 						if (i <= loan_term) {
                         	realinterest = unpaidbalance * origininterest; // real interest represents INTEREST being paid, dummy!
@@ -353,6 +350,7 @@ jQuery(document).ready(function($) { // document is ready, execute app
 				cash_on_cash_return = (cash_flow / Math.abs(cashinvested)) * 100;
 				
 				var mortgageinterest = interestpayments;
+                moneyspent = moneyspent 
 				var mortgageprinciple = ((fmp * 12) - interestpayments);
 				
 				// Also known as "ROI".
@@ -363,15 +361,8 @@ jQuery(document).ready(function($) { // document is ready, execute app
                 totalreturnIRR2 = (IRR(newArray) * 100).toFixed(2);
 				// sellpriceofhome + cashflow - cashinvested
 				
-				if (i == 1) {
-					var return_on_investment = (((parseFloat((newequity - oldequity)) + parseFloat(cash_flow))) / (Math.abs(parseFloat((fmp * 12) + Math.abs(cashinvested))))) * 100;
-				} else {
-					var return_on_investment = (((parseFloat((newequity - oldequity)) + parseFloat(cash_flow))) / (Math.abs(parseFloat((fmp * 12))))) * 100;
-				};
+				var return_on_investment = (parseFloat(cash_flow) / (annualexpenses + (fmp * 12))) * 100;
 
-				roicashinvested = roicashinvested - (fmp * 12);
-
-                
                 if (i == 1) {
                     var oldcashflow = cash_flow;
                     var oldnetincome = annual_income - annualexpenses;
@@ -431,11 +422,6 @@ jQuery(document).ready(function($) { // document is ready, execute app
                 };
                 
             };
-			
-			
-			for (var i = 1; i < (+holdinglength + 1); i++) {
-				//console.log((Math.pow((1 + totalroi), (1/i)) - 1) * 1);
-			};
 			
             
 			totalcashoncash = (totalcashflow / Math.abs(cashinvested)) * 100;
